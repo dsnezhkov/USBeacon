@@ -92,3 +92,5 @@ ENV/
 # SQLAlchemy
 *.db
 *.sqlite3
+
+*.swp

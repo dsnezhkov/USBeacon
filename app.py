@@ -1,32 +1,57 @@
-from flask import Flask, request, jsonify
-from models.tables import (app, db, Beacon)
+from flask import (Flask, request, jsonify)
+from models.tables import (app)
+from helpers.utils import (PayloadProcessor, BeaconRegistrator)
 from uuid import uuid4
-from datetime import datetime
 
-@app.route('/beacon', methods=['GET'])
-def beacon():
-    all_args = request.args.to_dict()
-    print(all_args)
 
-    q_app = request.args.get('a') or 'N/A'
-    q_ip = request.remote_addr or 'N/A'
-    # If beacon hashid is not provided - assign uuid server side for tracking
-    # Constraint: size<=8
-    q_hashid = request.args.get('h') or uuid4().hex
-    q_hashid = q_hashid[:8]
+@app.route('/ebeacon')
+@app.route('/ebeacon/<hashid>')
+def ebeacon_get(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_get(request, encrypt=True)
+            )
 
-    q_data = request.args.get('d') or 'N/A'
+@app.route('/beacon')
+@app.route('/beacon/<hashid>')
+def beacon_get(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_get(request, encrypt=False)
+            )
 
-    beacon = Beacon(q_hashid, q_app, q_ip, q_data, datetime.now())
-    db.session.add(beacon)
-    db.session.commit()
+@app.route('/ebeacon', methods=['POST'])
+@app.route('/ebeacon/<hashid>', methods=['POST'])
+def ebeacon_post(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_post(request, encrypt=True)
+            )
 
-    # Log new beacon just in case
-    beacon_new = Beacon.query.filter_by(hashid=q_hashid).first()
-    print(beacon_new)
 
-    # we dont; provide error checking to beacons (yet?)
-    return ('', 200)
+@app.route('/beacon', methods=['POST'])
+@app.route('/beacon/<hashid>', methods=['POST'])
+def beacon_post(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_post(request, encrypt=False)
+            )
+
+@app.route('/ebeacon', methods=['PUT'])
+@app.route('/ebeacon/<hashid>', methods=['PUT'])
+def ebeacon_put(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_put(request, encrypt=True)
+            )
+
+@app.route('/beacon', methods=['PUT'])
+@app.route('/beacon/<hashid>', methods=['PUT'])
+def beacon_put(hashid=None):
+    return BeaconRegistrator().accept_beacon(
+                hashid or uuid4().hex[:8] ,
+                PayloadProcessor().process_put(request, encrypt=False)
+            )
 
 if __name__ == '__main__':
     app.run(debug=True)

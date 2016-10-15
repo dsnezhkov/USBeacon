@@ -12,7 +12,7 @@ class Beacon(db.Model):
     hashid = db.Column(db.String(8))
     app = db.Column(db.String(2))
     ip = db.Column(db.String(16))
-    data = db.Column(db.Text(512))
+    data = db.Column(db.Text())
     created_at = db.Column(DateTime(True))
 
     def __init__(self, hashid, app, ip, data, created_at):
