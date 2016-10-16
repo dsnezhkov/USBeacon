@@ -4,6 +4,7 @@ from uuid import uuid4
 from datetime import datetime
 from base64 import b64decode
 import sys,operator
+from pprint import  pprint 
 
 class PayloadProcessor:
     def __init__(self):
@@ -11,7 +12,7 @@ class PayloadProcessor:
 
     def xor_decrypt_str(cipherText, key):
         ''' 
-         Stolen from //raw.githubusercontent.com/silentbreaksec/Throwback/master/Python/tbMangler.py        
+         Stolen modified from //raw.githubusercontent.com/silentbreaksec/Throwback/master/Python/tbMangler.py        
         '''
         cipherText = cipherText.split(',')
         clearText = ''
@@ -26,11 +27,11 @@ class PayloadProcessor:
     def decrypt_param(b64_encoded):
         key = '~'
         b64_decoded=bytes.decode(b64decode(b64_encoded.encode('utf-8')))
-        print("B64 Decoded: {}".format(b64_decoded))
+        #print("B64 Decoded: {}".format(b64_decoded))
 
         plain_payload=PayloadProcessor.xor_decrypt_str(b64_decoded, key)
-        print("Plain Payload: {}".format(plain_payload))
-        print(plain_payload)
+        #print("Plain Payload: {}".format(plain_payload))
+
         return plain_payload 
 
     def process_get(self, request, encrypt=False):
@@ -89,8 +90,7 @@ class BeaconRegistrator:
         db.session.commit()
 
         # Log new beacon just in case
-        beacon_new = Beacon.query.filter_by(hashid=hashid).first()
-        print(beacon_new)
+        print(beacon)
 
         # we don't provide error codes to beacons (yet?)
         return ('', 200)
