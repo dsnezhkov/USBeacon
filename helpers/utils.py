@@ -26,11 +26,12 @@ class PayloadProcessor:
 
     def decrypt_param(b64_encoded):
         key = '~'
+        print("B64 Encoded: {}".format(b64_encoded))
         b64_decoded=bytes.decode(b64decode(b64_encoded.encode('utf-8')))
-        #print("B64 Decoded: {}".format(b64_decoded))
+        print("B64 Decoded: {}".format(b64_decoded))
 
         plain_payload=PayloadProcessor.xor_decrypt_str(b64_decoded, key)
-        #print("Plain Payload: {}".format(plain_payload))
+        print("Plain Payload: {}".format(plain_payload))
 
         return plain_payload 
 
