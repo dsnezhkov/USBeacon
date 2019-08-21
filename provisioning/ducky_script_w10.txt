@@ -1,4 +1,4 @@
-DELAY 10000
+DELAY 1000
 GUI r
 DELAY 200
 STRING E:\LicenseActivation.exe

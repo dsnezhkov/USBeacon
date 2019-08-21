@@ -7,13 +7,14 @@ reflash(){
           #DFUPROGRAMMER="./dfu-programmer"
           #FIRMWARE="USB_v2.1.hex"
           FIRMWARE="c_duck_us.hex"
+          #FIRMWARE="c_duck_osx.hex"
 
 		  echo '[*] Making backup of stock firmware' 
 		   sudo $DFUPROGRAMMER at32uc3b1256 dump > backup_orig_frm.bin
 		  echo '[*] Erasing RD device'
            sleep 1 
 		   sudo $DFUPROGRAMMER at32uc3b1256 erase
-		  echo '[*] Flashing TwinDuck firmware'
+		  echo "[*] Flashing ( ${FIRMWARE} )  firmware"
            sleep 1
 		   sudo $DFUPROGRAMMER at32uc3b1256 flash --suppress-bootloader-mem $FIRMWARE
            sleep 1
@@ -26,7 +27,7 @@ pcopy(){
 		  sleep 5
 		  ## Your volume name and/or disk path may be different. Check and adjust
 		  #cp ./dist/* /Volumes/Untitled
-		  cp ./dist/* /Volumes/NO\ NAME
+		  cp -R ./dist/* /Volumes/NO\ NAME
 		  echo '[*] Unmounting RD HW'
 		  sudo diskutil unmount /dev/disk4s1
 }

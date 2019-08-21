@@ -1,7 +1,8 @@
 #!/bin/bash
 ### https://github.com/hak5darren/USB-Rubber-Ducky
 # Firmware
-curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_v2.1.hex -o  c_duck_v2.1.hex
+curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_us.hex -o  c_duck_v2.hex
+curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_osx.hex -o  c_duck_osx.hex
 # Encoder
 curl -q https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Encoder/encoder.jar  -o encoder.jar
 # Layout you need
