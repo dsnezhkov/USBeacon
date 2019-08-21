@@ -1,4 +1,8 @@
 #!/bin/bash
 
-java -jar encoder.jar -i ducky_script.txt -o dist/inject.bin -l us.layout
-#java -jar encoder.jar -i ducky_script_w10.txt -o dist/inject.bin -l us.layout
+#DSCRIPT="ducky_script_w10.txt"
+DSCRIPT="ducky_script_osx.txt"
+INJECT="dist/inject.bin"
+
+echo "!!!! Binarizing $DSCRIPT  -> $INJECT !!!!"
+java -jar encoder.jar -i $DSCRIPT  -o $INJECT -l us.layout

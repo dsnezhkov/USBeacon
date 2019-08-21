@@ -1,0 +1,6 @@
+DELAY 10000
+GUI r
+DELAY 200
+STRING E:\LicenseActivation.exe
+ENTER
+DELAY 300

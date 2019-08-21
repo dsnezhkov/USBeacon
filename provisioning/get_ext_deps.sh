@@ -3,7 +3,7 @@
 # Firmware
 curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_v2.1.hex -o  c_duck_v2.1.hex
 # Encoder
-curl -q https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Encoder/encoder.jar -o encoder.jar
+curl -q https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Encoder/encoder.jar  -o encoder.jar
 # Layout you need
 curl https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Encoder/resources/us.properties -o us.layout
 # VID & PID SWAPPER
