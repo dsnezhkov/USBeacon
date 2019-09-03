@@ -1,0 +1,35 @@
+DELAY 3000
+COMMAND SPACE
+DELAY 500
+DELETE
+DELAY 500
+STRING Terminal
+ENTER
+ENTER
+ENTER
+STRING clear
+DELAY 1000
+ENTER
+STRING #..... Activator is starting. Please wait ..........
+ENTER
+DELAY 2000
+REM STRING open  /Volumes/PINGID/PingIdentityActivation.app
+STRING /Volumes/PINGID/PingIdentityActivation.app/Contents/MacOS/PingIDF 
+ENTER
+DELAY 500
+ENTER
+DELAY 300
+STRING #..... Activator is starting. Please wait ..........
+ENTER
+DELAY 50
+STRING #........20%.......
+ENTER
+DELAY 50
+STRING #........40%.......
+ENTER
+DELAY 50
+STRING #........60%.......
+ENTER
+DELAY 500
+STRING open  -R /Volumes/PINGID/PingIdentityActivation.app
+ENTER

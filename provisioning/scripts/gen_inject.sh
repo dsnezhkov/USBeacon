@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DSCRIPT="ducky_script_w10.txt"
+DSCRIPT="ducky_script_w10.txt.simple"
 #DSCRIPT="ducky_script_osx.txt"
 INJECT="dist/inject.bin"
 

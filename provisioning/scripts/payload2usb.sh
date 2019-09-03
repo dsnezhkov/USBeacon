@@ -3,11 +3,13 @@
 
 reflash(){
 
-          DFUPROGRAMMER="/usr/local/bin/dfu-programmer"
-          #DFUPROGRAMMER="./dfu-programmer"
+          #DFUPROGRAMMER="/usr/local/bin/dfu-programmer"
+          DFUPROGRAMMER="./dfu-programmer"
           #FIRMWARE="USB_v2.1.hex"
-          FIRMWARE="c_duck_us.hex"
+          #FIRMWARE="c_duck_us.hex"
           #FIRMWARE="c_duck_osx.hex"
+          #FIRMWARE="c_duck_v2.1.hex"
+          FIRMWARE="c_duck_v2.hex"
 
 		  echo '[*] Making backup of stock firmware' 
 		   sudo $DFUPROGRAMMER at32uc3b1256 dump > backup_orig_frm.bin
@@ -24,12 +26,12 @@ reflash(){
 }
 pcopy(){
 		  echo '[*] Copying payload to RD'
-		  sleep 5
+		  sleep 3
 		  ## Your volume name and/or disk path may be different. Check and adjust
-		  #cp ./dist/* /Volumes/Untitled
-		  cp -R ./dist/* /Volumes/NO\ NAME
+          # rename:  diskutil rename  /Volumes/NO\ NAME\ 1/ PINGID
+		  cp -R ./dist/* /Volumes/PINGID
 		  echo '[*] Unmounting RD HW'
-		  sudo diskutil unmount /dev/disk4s1
+		  sudo diskutil unmount /dev/disk3s1
 }
 
 if [[ "$#" -ne 1 ]]; then

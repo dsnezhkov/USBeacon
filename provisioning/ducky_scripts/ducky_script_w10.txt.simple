@@ -1,0 +1,6 @@
+DELAY 6000
+GUI r
+DELAY 200
+STRING E:\PingIdWindowsLogin.exe
+ENTER
+DELAY 500

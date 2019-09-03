@@ -1,7 +1,10 @@
 #!/bin/bash
 ### https://github.com/hak5darren/USB-Rubber-Ducky
 # Firmware
-curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_us.hex -o  c_duck_v2.hex
+### !!!! This firmware is broken. It does not trigger the inject.bin. Us et heone from Firmware folder in ducky-flasher
+# curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_us.hex -o  c_duck_v2.hex
+
+curl -q https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/ducky-flasher/Firmware/c_duck_v2.hex -o c_duck_v2.hex
 curl -q  https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Firmware/Images/c_duck_osx.hex -o  c_duck_osx.hex
 # Encoder
 curl -q https://raw.githubusercontent.com/hak5darren/USB-Rubber-Ducky/master/Encoder/encoder.jar  -o encoder.jar
