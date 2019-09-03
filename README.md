@@ -94,3 +94,13 @@ B64 Encoded: MTEsMTMsMjcsMTIsNjgsODIsMTQsMzEsMTMsMTMsNjg=
 B64 Decoded: 11,13,27,12,68,82,14,31,13,13,68
 Plain Payload: user:,pass:
 ```
+
+### Notes:
+
+You can play with stages (denoted by `app` key) to implement various collection phases. 
+Example: 
+- Phase I beacons out the context the agent runs in.
+- Phase II  agent code collect credentials and ships them to the collector. 
+
+
+
