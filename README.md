@@ -37,7 +37,7 @@ Sample Nginx config:
 server {
         listen 80;
         listen 443 ssl;
-        server_name *.awsbuckets.online;
+        server_name *.domain.tld;
 
 
         ssl_certificate /etc/letsencrypt/live/<domain>/fullchain.pem;
