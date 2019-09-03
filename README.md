@@ -3,6 +3,10 @@
 Objective(s):
 > A reference implementation of a simple protocol and an agent contract to collect and transfer information from a remote computer to a collector. Mostly designed to work around USB Rubber Duckies but may be used standalone. The goals are to support the lowest common protocols available to the agent tech stack (clear HTTP) and minimal encryption facilities (e.g. XOR in ntive VBScript) across the board of deployment context (OS, etc.).
 
+### Architecture
+
+![arch diagram](https://github.com/dsnezhkov/USBeacon/raw/master/docs/USBeacon.png "Arch Diagram")
+
 
 ### Backend
 *Location*: `/backend`
