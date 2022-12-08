@@ -1,6 +1,6 @@
 blessings==1.7
 bpython==0.18
-certifi==2019.6.16
+certifi==2022.12.7
 cffi==1.12.3
 chardet==3.0.4
 Click==7.0
